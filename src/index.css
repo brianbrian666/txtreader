@@ -1,0 +1,300 @@
+/* ===== 主题变量 ===== */
+[data-theme='light'] {
+  --bg: #e8ecf1;
+  --surface: #ffffff;
+  --surface-2: #f1f4f8;
+  --fg: #23272e;
+  --muted: #7b828e;
+  --border: #dfe4eb;
+  --accent: #4c6ef5;
+  --accent-fg: #ffffff;
+  --content-bg: #ffffff;
+  --content-fg: #262b33;
+  --shadow: 0 10px 34px rgb(25 35 55 / 0.12);
+  color-scheme: light;
+}
+
+[data-theme='paper'] {
+  --bg: #e3d9c0;
+  --surface: #f5eedb;
+  --surface-2: #ece2c8;
+  --fg: #4b4030;
+  --muted: #97896b;
+  --border: #d8caa5;
+  --accent: #b0793f;
+  --accent-fg: #ffffff;
+  --content-bg: #f7f1e0;
+  --content-fg: #4d4233;
+  --shadow: 0 10px 34px rgb(90 70 30 / 0.15);
+  color-scheme: light;
+}
+
+[data-theme='green'] {
+  --bg: #c4dcb8;
+  --surface: #d8ead0;
+  --surface-2: #cbe2c0;
+  --fg: #2d3a2b;
+  --muted: #6a8064;
+  --border: #b7d3a9;
+  --accent: #3e7d46;
+  --accent-fg: #ffffff;
+  --content-bg: #cfe5c3;
+  --content-fg: #2b3a29;
+  --shadow: 0 10px 34px rgb(35 70 30 / 0.16);
+  color-scheme: light;
+}
+
+[data-theme='night'] {
+  --bg: #131519;
+  --surface: #1c1f25;
+  --surface-2: #24272e;
+  --fg: #c6ccd6;
+  --muted: #7c828d;
+  --border: #2b2f37;
+  --accent: #6d8bff;
+  --accent-fg: #ffffff;
+  --content-bg: #181b20;
+  --content-fg: #b4bbc6;
+  --shadow: 0 10px 34px rgb(0 0 0 / 0.5);
+  color-scheme: dark;
+}
+
+[data-theme='black'] {
+  --bg: #000000;
+  --surface: #0d0e11;
+  --surface-2: #16171b;
+  --fg: #b9bfc9;
+  --muted: #6d737d;
+  --border: #202227;
+  --accent: #6d8bff;
+  --accent-fg: #ffffff;
+  --content-bg: #000000;
+  --content-fg: #a9b0ba;
+  --shadow: 0 10px 34px rgb(0 0 0 / 0.7);
+  color-scheme: dark;
+}
+
+/* ===== 基础重置 ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+/* ===== 字体族 ===== */
+.font-default {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+}
+
+.font-song {
+  font-family: 'Songti SC', 'STSong', 'SimSun', 'NSimSun', 'Noto Serif CJK SC', serif;
+}
+
+.font-hei {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+}
+
+.font-kai {
+  font-family: 'Kaiti SC', 'STKaiti', 'KaiTi', '楷体', 'Noto Serif CJK SC', serif;
+}
+
+/* ===== 滚动条 ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--fg) 22%, transparent) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--fg) 20%, transparent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===== 通用按钮 ===== */
+button {
+  font-family: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.btn.primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--fg);
+}
+
+.btn.ghost:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.btn.small {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 7px;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.icon-btn:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.icon-btn.active {
+  background: var(--surface-2);
+  color: var(--accent);
+}
+
+.icon-btn.bordered {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.icon-btn.small {
+  min-width: 24px;
+  height: 24px;
+  padding: 0 3px;
+}
+
+/* ===== 输入控件 ===== */
+input[type='text'] {
+  font-family: inherit;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+}
+
+input[type='range']::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== 加载动画 ===== */
+.spinner {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
